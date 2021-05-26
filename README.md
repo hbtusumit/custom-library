@@ -25,3 +25,64 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## How to Create Library in Angular 
+
+Step 1: Installing Angular CLI
+    $ npm install -g @angular/cli
+
+Step 2: Creating your Angular 9 Project
+    $ ng new custom-library
+
+Step 3: Create Library
+    $ ng generate library my-lib
+
+Step 4: Make a functionality into your library.
+    Paste This code in my-lib.component.ts
+  <form method="post">
+   <div>
+     <label for="uname"><b>UserName:</b></label>
+     <input type="text" placeholder="Enter User Name" name="uname" required style="margin:10px;">
+     <br/>
+     <label for="pass"><b>Password:</b></label>
+     <input type="password" placeholder="Enter Password" name="pass" required style="margin:10px;">
+     <br/>
+     <button type="submit">Login</button>
+   </div>
+  </form>
+
+Step 5 : Build and consume Angular library.
+    $ ng build my-lib
+
+Step 6: Implement library into current project
+    require the library in app.module.ts
+    import { MyLibModule } from 'my-lib';
+    
+    @NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MyLibModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+Step 7:Call the Library Component in app.component.html 
+    <p>Hello Sumit</p>
+    <lib-my-lib></lib-my-lib>
+
+
+
+  `
+ 
+
+
+
+
+# custom-library
